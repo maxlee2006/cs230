@@ -1,7 +1,7 @@
 //------------------------------------------------------------------------------
 //
 // File Name:	Trace.c
-// Author(s):	Doug Schilling (dschilling)
+// Author(s):	Max Lee
 // Project:		Project 0
 // Course:		CS230S25
 //
@@ -30,6 +30,8 @@ static const char* traceFileName = "Trace.log";
 
 //------------------------------------------------------------------------------
 // Private Variables:
+
+static FILE* traceFile;
 //------------------------------------------------------------------------------
 
 // TODO: Declare a private variable for storing a file handle.
@@ -50,6 +52,14 @@ void TraceInit()
 	// TODO: Open "trace.log" for writing (text mode).
 	// fopen_s:
 	// https://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k(stdio%2Ffopen_s);k(fopen_s);k(DevLang-C%2B%2B);k(TargetOS-Windows)&rd=true
+	traceFile = NULL;
+	int out = fopen_s(&traceFile,"Trace.log", "wt");
+	if (out != 0) {
+		perror("error: file was not opened.");
+		printf("error code: %d", errno);
+		return;
+	}
+
 
 	// Error handling (implementation details to be determined by the student):
 	// https://msdn.microsoft.com/en-us/library/9t0e6085.aspx
@@ -64,9 +74,19 @@ void TraceInit()
 void TraceMessage(const char * formatString, ...)
 {
 	UNREFERENCED_PARAMETER(formatString);
-
 	// TODO: Write the message to the Tracing/Logging file using the variadic
 	//   functions discussed during the Week 1 lectures.
+	if (traceFile) {
+		va_list args;
+		va_start(args, formatString);
+		vfprintf_s(traceFile, formatString, args);
+		fprintf_s(traceFile, "\n");
+		va_end(args);
+	}
+	else {
+		return;
+	}
+
 
 
 }

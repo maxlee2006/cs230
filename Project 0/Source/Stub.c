@@ -1,7 +1,7 @@
 //------------------------------------------------------------------------------
 //
 // File Name:	Stub.c
-// Author(s):	Doug Schilling (dschilling)
+// Author(s):	Max Lee
 // Project:		Project 0
 // Course:		CS230S25
 //
@@ -39,6 +39,7 @@
 // Initialize the ...
 void StubInit()
 {
+
 }
 
 // Update the ...

@@ -1,7 +1,7 @@
 //------------------------------------------------------------------------------
 //
 // File Name:	Stub.h
-// Author(s):	Doug Schilling (dschilling)
+// Author(s):	Max Lee
 // Project:		Project 0
 // Course:		CS230S25
 //
