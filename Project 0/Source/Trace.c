@@ -52,9 +52,7 @@ void TraceInit()
 	// TODO: Open "trace.log" for writing (text mode).
 	// fopen_s:
 	// https://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k(stdio%2Ffopen_s);k(fopen_s);k(DevLang-C%2B%2B);k(TargetOS-Windows)&rd=true
-	traceFile = NULL;
-	int out = fopen_s(&traceFile,"Trace.log", "wt");
-	if (out != 0) {
+	if (fopen_s(&traceFile, "Trace.log", "wt")) {
 		perror("error: file was not opened.");
 		printf("error code: %d", errno);
 		return;
@@ -76,7 +74,7 @@ void TraceMessage(const char * formatString, ...)
 	UNREFERENCED_PARAMETER(formatString);
 	// TODO: Write the message to the Tracing/Logging file using the variadic
 	//   functions discussed during the Week 1 lectures.
-	if (traceFile) {
+	if (traceFile != NULL) {
 		va_list args;
 		va_start(args, formatString);
 		vfprintf_s(traceFile, formatString, args);
@@ -96,6 +94,10 @@ void TraceMessage(const char * formatString, ...)
 void TraceShutdown()
 {
 	// TODO: Close "trace.log" if it has been opened successfully.
+	if (traceFile == NULL) {
+		return;
+	}
+	fclose(traceFile);
 
 
 }
