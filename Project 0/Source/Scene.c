@@ -14,6 +14,7 @@
 
 #include "Scene.h"
 #include "SceneSystem.h"
+#include "Trace.h"
 
 //------------------------------------------------------------------------------
 // Private Constants:
@@ -66,6 +67,7 @@ void SceneLoad(const Scene* scene)
 	if (scene && (scene->load != NULL))
 	{
 		// TODO: Call TraceMessage, passing the format string "%s: Load" and the name of the scene.
+		TraceMessage("%s: Load", scene->name);
 
 
 		// Execute the Load function.
@@ -80,6 +82,7 @@ void SceneInit(const Scene* scene)
 	if (scene && (scene->init != NULL))
 	{
 		// TODO: Call TraceMessage, passing the format string "%s: Init" and the name of the scene.
+		TraceMessage("%s: Init", scene->name);
 
 		// Execute the Init function.
 		(*scene->init)();
@@ -93,7 +96,7 @@ void SceneUpdate(const Scene* scene, float dt)
 	if (scene && (scene->update != NULL))
 	{
 		// TODO: Call TraceMessage, passing the format string "%s: Update" and the name of the scene.
-
+		TraceMessage("%s: Update", scene->name);
 		// Execute the Update function.
 		(*scene->update)(dt);
 	}
@@ -106,7 +109,7 @@ void SceneRender(const Scene* scene)
 	if (scene && (scene->render != NULL))
 	{
 		// TODO: Call TraceMessage, passing the format string "%s: Render" and the name of the scene.
-
+		TraceMessage("%s: Render", scene->name);
 		// Execute the Render function.
 		(*scene->render)();
 	}
@@ -119,7 +122,7 @@ void SceneExit(const Scene* scene)
 	if (scene && (scene->exit != NULL))
 	{
 		// TODO: Call TraceMessage, passing the format string "%s: Exit" and the name of the scene.
-
+		TraceMessage("%s: Exit", scene->name);
 		// Execute the Exit function.
 		(*scene->exit)();
 	}
@@ -132,7 +135,7 @@ void SceneUnload(const Scene* scene)
 	if (scene && (scene->unload != NULL))
 	{
 		// TODO: Call TraceMessage, passing the format string "%s: Unload" and the name of the scene.
-
+		TraceMessage("%s: Unload", scene->name);
 		// Execute the Unload function.
 		(*scene->unload)();
 	}
