@@ -52,7 +52,7 @@ void TraceInit()
 	// TODO: Open "trace.log" for writing (text mode).
 	// fopen_s:
 	// https://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k(stdio%2Ffopen_s);k(fopen_s);k(DevLang-C%2B%2B);k(TargetOS-Windows)&rd=true
-	if (fopen_s(&traceFile, "C:\\Users\\maxni\\OneDrive\\Digipen\\CS230\\Project 0\\Trace.log", "wt")) {
+	if (fopen_s(&traceFile, "Trace.log", "wt")) {
 		perror("error: file was not opened.");
 		printf("error code: %d", errno);
 		return;
