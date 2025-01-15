@@ -148,16 +148,16 @@ static void SceneSystemUpdate(float dt)
 		SceneExit(instance.activeScene);
 
 		// TODO: Add support for Load and Unload.
-		if (instance.isRestarting == true) {
+		if (instance.isRestarting) {
 			instance.isRestarting = false;
 		}
 		else {
 			SceneUnload(instance.activeScene);
+
+			instance.activeScene = instance.nextScene;
+
 			SceneLoad(instance.nextScene);
 		}
-
-		// Update the active scene.
-		instance.activeScene = instance.nextScene;
 
 		// Initialize the new scene.
 		SceneInit(instance.activeScene);

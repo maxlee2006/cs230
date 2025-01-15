@@ -104,7 +104,7 @@ BaseSystem* PlatformSystemGetInstance(HINSTANCE hInstance, int show)
 	DGL_SysInitInfo initInfo;
 	initInfo.mAppInstance = instance.mAppInstance;
 	initInfo.mShow = instance.mCreateWindow;
-	initInfo.mWindowTitle = "CS230S25 Project 0 - Basic Framework";
+	initInfo.mWindowTitle = "CS230S25 Project 1 - Engine Flow";
 	initInfo.mWindowWidth = 1024;
 	initInfo.mWindowHeight = 768;
 	initInfo.mMaxFrameRate = 60;

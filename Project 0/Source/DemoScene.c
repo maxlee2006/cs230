@@ -209,8 +209,8 @@ static void DemoSceneInit()
 	posSpaceship.x = 0.f;
 	posSpaceship.y = 0.f;
 	//   uvOffset
-	uvOffset.x = 0;
-	uvOffset.y = 0;
+	uvOffset.x = 0.f;
+	uvOffset.y = 0.f;
 	//   alpha
 	alpha = 1.0f;
 	//   rotation
@@ -384,8 +384,6 @@ static void DemoSceneUnload(void)
 	DGL_Graphics_FreeTexture(&textureBall);
 	DGL_Graphics_FreeTexture(&textureSquare);
 
-	// Shutdown the DigiPen Graphics Library and the Windows application.
-	DGL_System_Exit();
 
 
 
